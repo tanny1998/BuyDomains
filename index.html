@@ -1123,9 +1123,10 @@ footer {
 </div>
 
 <script>
-// Auto-fill username from URL path e.g. https://buy.domains/vikas → "vikas"
+// Auto-fill username from URL path e.g. https://buy.domains/BuyDomains/username → "username"
 (function() {
-  const slug = window.location.pathname.replace(/^\/+|\/+$/g, '');
+  const match = window.location.pathname.match(/\/BuyDomains\/([^\/]+)/i);
+  const slug = match ? match[1] : '';
   if (slug) {
     const fields = document.querySelectorAll('#igHandle, #igLHandle');
     fields.forEach(f => { f.value = slug; f.placeholder = slug; });
