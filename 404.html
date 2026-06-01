@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script>
+  // GitHub Pages SPA redirect trick
+  // Saves the full path into sessionStorage, then redirects to index.html
+  sessionStorage.setItem('ghRedirect', window.location.pathname + window.location.search);
+  window.location.replace('/BuyDomains/');
+</script>
+</head>
+<body></body>
+</html>
