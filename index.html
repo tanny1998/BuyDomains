@@ -1123,8 +1123,16 @@ footer {
 </div>
 
 <script>
-// Auto-fill username from URL path e.g. https://buy.domains/BuyDomains/username → "username"
+// Support GitHub Pages clean URLs via 404.html redirect trick
 (function() {
+  // If we were redirected via 404.html, restore the original path
+  const redirectPath = sessionStorage.getItem('ghRedirect');
+  if (redirectPath) {
+    sessionStorage.removeItem('ghRedirect');
+    try { window.history.replaceState(null, '', redirectPath); } catch(e) {}
+  }
+
+  // Read username from /BuyDomains/<username>
   const match = window.location.pathname.match(/\/BuyDomains\/([^\/]+)/i);
   const slug = match ? match[1] : '';
   if (slug) {
