@@ -1138,8 +1138,10 @@ footer {
     try { window.history.replaceState(null, '', redirectPath); } catch(e) {}
   }
 
-  // Read username from /BuyDomains/<username>
-  const match = window.location.pathname.match(/\/BuyDomains\/([^\/]+)/i);
+  // With custom domain growcery.shop/vikas → username is "vikas"
+  // Also supports growcery.shop/BuyDomains/vikas as fallback
+  const match = window.location.pathname.match(/\/BuyDomains\/([^\/]+)/i)
+             || window.location.pathname.match(/^\/([^\/]+)\/?$/);
   const slug = match ? match[1] : '';
   if (slug) {
     const fields = document.querySelectorAll('#igHandle, #igLHandle');
