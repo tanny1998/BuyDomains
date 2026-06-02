@@ -3,10 +3,11 @@
 <head>
 <meta charset="utf-8">
 <script>
-  // Save the original path e.g. /BuyDomains/vikas
-  sessionStorage.setItem('ghRedirect', window.location.pathname + window.location.search);
-  // Redirect to root of custom domain
-  window.location.replace('https://growcery.shop/BuyDomains/');
+  // Only redirect if we haven't already (prevents infinite loop)
+  if (!sessionStorage.getItem('ghRedirect')) {
+    sessionStorage.setItem('ghRedirect', window.location.pathname);
+    window.location.replace('https://growcery.shop/');
+  }
 </script>
 </head>
 <body></body>
