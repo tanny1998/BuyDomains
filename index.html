@@ -1138,8 +1138,8 @@ footer {
     try { window.history.replaceState(null, '', redirectPath); } catch(e) {}
   }
 
-  // With custom domain growcery.shop/vikas → username is "vikas"
-  // Also supports growcery.shop/BuyDomains/vikas as fallback
+  // With custom domain growcery.shop/user → username is "user"
+  // Also supports growcery.shop/BuyDomains/user as fallback
   const match = window.location.pathname.match(/\/BuyDomains\/([^\/]+)/i)
              || window.location.pathname.match(/^\/([^\/]+)\/?$/);
   const slug = match ? match[1] : '';
